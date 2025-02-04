@@ -2,105 +2,186 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Phonepe+ V1</title>
+  <title>Phonepe+v2</title>
   
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
-    Wallet Dashboard
+   Wallet Dashboard
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
+   body {
+            font-family: 'Inter', sans-serif;
+        }
   </style>
   <script>
-    function showAccountDetails(accountId) {
-      const accounts = document.querySelectorAll('.account-details');
-      accounts.forEach(account => {
-        account.classList.add('hidden');
-      });
-      document.getElementById(accountId).classList.remove('hidden');
-      const accountCards = document.querySelectorAll('.account-card');
-      accountCards.forEach(card => {
-        card.classList.remove('bg-blue-100');
-      });
-      document.getElementById('card-' + accountId).classList.add('bg-blue-100');
-    }
+   function showAccountDetails(accountId) {
+            const accounts = document.querySelectorAll('.account-details');
+            accounts.forEach(account => {
+                account.classList.add('hidden');
+            });
+            document.getElementById(accountId).classList.remove('hidden');
 
-    function showPopup() {
-      alert('PhonePe Account Added!');
-    }
+            const accountCards = document.querySelectorAll('.account-card');
+            accountCards.forEach(card => {
+                card.classList.remove('bg-blue-100');
+            });
+            document.getElementById('card-' + accountId).classList.add('bg-blue-100');
+        }
+
+        function showPopup() {
+            alert('PhonePe Account Added!');
+            addNewAccount();
+        }
+
+        function addNewAccount() {
+            const tags = ['Main', 'Old', 'New', 'Business', 'Personal'];
+            const randomTag = tags[Math.floor(Math.random() * tags.length)];
+            const accountId = 'account' + (document.querySelectorAll('.account-card').length + 1);
+            const accountCard = document.createElement('div');
+            accountCard.className = 'p-4 border rounded-lg flex justify-between items-center cursor-pointer account-card shadow-lg';
+            accountCard.id = 'card-' + accountId;
+            accountCard.onclick = function() { showAccountDetails(accountId); };
+            accountCard.innerHTML = `
+                <div>
+                    <h3 class="text-lg font-semibold">PhonePe UPI • **** ${Math.floor(1000 + Math.random() * 9000)}</h3>
+                    <p class="text-gray-500">₹0</p>
+                </div>
+                <span class="bg-blue-600 text-white px-2 py-1 rounded-lg">${randomTag}</span>
+            `;
+            document.querySelector('.space-y-4').appendChild(accountCard);
+
+            const accountDetails = document.createElement('div');
+            accountDetails.className = 'account-details p-4 border rounded-lg bg-white hidden shadow-lg';
+            accountDetails.id = accountId;
+            accountDetails.innerHTML = `
+                <h3 class="text-xl font-semibold mb-4">PhonePe UPI • **** ${Math.floor(1000 + Math.random() * 9000)}</h3>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-500">Account Details</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded-lg">${randomTag}</span>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-2xl font-semibold">₹0.00</h4>
+                </div>
+                <div class="mb-4 h-24 bg-gray-100 rounded-lg"></div>
+                <div class="mb-4">
+                    <p class="text-gray-600">Account holder</p>
+                    <p class="font-semibold">New User</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600">UPI ID</p>
+                    <p class="font-semibold">newuser@upi</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600">Bank Name</p>
+                    <p class="font-semibold">New Bank</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600">Account Type</p>
+                    <p class="font-semibold">Savings</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600">Branch</p>
+                    <p class="font-semibold">New City</p>
+                </div>
+                <div class="mb-4 p-4 border rounded-lg bg-gray-50 shadow-inner">
+                    <h4 class="text-lg font-semibold mb-2">Transfer Money</h4>
+                    <div class="mb-4">
+                        <label class="block text-gray-600 mb-2" for="upi-id">Enter UPI ID</label>
+                        <input class="w-full p-2 border rounded-lg" id="upi-id" placeholder="Enter UPI ID" type="text"/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600 mb-2" for="name">Name</label>
+                        <input class="w-full p-2 border rounded-lg" id="name" placeholder="Enter Name" type="text"/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600 mb-2" for="amount">Amount</label>
+                        <input class="w-full p-2 border rounded-lg" id="amount" placeholder="Enter Amount" type="number"/>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full">Transfer Now</button>
+                </div>
+                <div class="mb-4 p-4 border rounded-lg bg-white shadow-inner">
+                    <h4 class="text-lg font-semibold mb-2">Recent Transactions</h4>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <div>
+                                <p class="font-semibold">No transactions yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.querySelector('.flex-1').appendChild(accountDetails);
+        }
   </script>
-</head>
-
-<body class="bg-gray-100">
+ </head>
+ <body class="bg-gray-100">
   <div class="flex flex-col h-screen">
-    <!-- Header -->
-    <div class="bg-white p-4 flex justify-between items-center shadow-md">
-      <div class="flex items-center">
-        <img alt="Logo" class="mr-3" height="40" src="https://placehold.co/40x40" width="40" />
-        <span class="text-xl font-semibold">
-          PhonePe+
-        </span>
-      </div>
-      <div class="flex items-center">
-        <i class="fas fa-bell text-gray-600 mr-6">
-        </i>
-        <div class="flex items-center">
-          <img alt="User Avatar" class="rounded-full mr-3" height="40" src="https://placehold.co/40x40" width="40" />
-          <div>
-            <span class="block font-semibold">
-              Rajesh Kumar
-            </span>
-            <span class="block text-yellow-600 text-sm">
-              Premium User
-            </span>
-          </div>
-        </div>
-      </div>
+   <!-- Header -->
+   <div class="bg-white p-4 flex justify-between items-center shadow-md">
+    <div class="flex items-center">
+     <img alt="v2.1" class="mr-3" height="40" src="" width="40"/>
+     <span class="text-xl font-semibold">
+      PhonePe+
+     </span>
     </div>
-    <!-- Main Content -->
-    <div class="flex-1 p-4 overflow-y-auto">
-      <div class="mb-6">
-        <div class="relative w-full">
-          <input class="w-full p-2 pl-10 border rounded-lg" placeholder="Search..." type="text" />
-          <i class="fas fa-search absolute left-3 top-3 text-gray-400">
-          </i>
-        </div>
-      </div>
+    <div class="flex items-center">
+     <i class="fas fa-bell text-gray-600 mr-6">
+     </i>
+     <div class="flex items-center">
+      <img alt="User Avatar" class="rounded-full mr-3" height="40" src="https://storage.googleapis.com/a1aa/image/PQSAbzEKMqH0L0a4bmw3VW8_fRNRFcFAEb9ilmZvJiE.jpg" width="40"/>
       <div>
-        <!-- Wallet Section -->
-        <div class="mb-6">
-          <h2 class="text-2xl font-semibold mb-4">
-            Wallet
-          </h2>
-          <div class="flex justify-between mb-4">
-            <button class="bg-green-600 text-white px-6 py-3 rounded-lg">
-              + Add New Account
-            </button>
-            <button class="bg-red-600 text-white px-6 py-3 rounded-lg">
-              Delete Account
-            </button>
-            <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg" onclick="showPopup()">
-              Buy More Accounts
-            </button>
-          </div>
-          <div class="space-y-4">
-            <div class="p-4 border rounded-lg flex justify-between items-center bg-blue-50 cursor-pointer account-card shadow-lg" id="card-account1" onclick="showAccountDetails('account1')">
-              <div>
-                <h3 class="text-lg font-semibold">
+       <span class="block font-semibold">
+        Rajesh Kumar
+       </span>
+       <span class="block text-yellow-600 text-sm">
+        Premium User
+       </span>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Main Content -->
+   <div class="flex-1 p-4 overflow-y-auto">
+    <div class="mb-6">
+     <div class="relative w-full">
+      <input class="w-full p-2 pl-10 border rounded-lg" placeholder="Search..." type="text"/>
+      <i class="fas fa-search absolute left-3 top-3 text-gray-400">
+      </i>
+     </div>
+    </div>
+    <div>
+     <!-- Wallet Section -->
+     <div class="mb-6">
+      <h2 class="text-2xl font-semibold mb-4">
+       Wallet
+      </h2>
+      <div class="flex justify-between mb-4">
+       <button class="bg-green-600 text-white px-6 py-3 rounded-lg">
+        + Add New Account
+       </button>
+       <button class="bg-red-600 text-white px-6 py-3 rounded-lg">
+        Delete Account
+       </button>
+       <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg" onclick="showPopup()">
+        Buy More Accounts
+       </button>
+      </div>
+      <div class="space-y-4">
+       <div class="p-4 border rounded-lg flex justify-between items-center bg-blue-50 cursor-pointer account-card shadow-lg" id="card-account1" onclick="showAccountDetails('account1')">
+        <div>
+
+      <h3 class="text-lg font-semibold">
                   PhonePe UPI • **** 8392
                 </h3>
                 <p class="text-gray-500">
