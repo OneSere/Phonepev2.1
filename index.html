@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Phonepe+ V1</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>
+    Wallet Dashboard
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+  <script>
+    function showAccountDetails(accountId) {
+      const accounts = document.querySelectorAll('.account-details');
+      accounts.forEach(account => {
+        account.classList.add('hidden');
+      });
+      document.getElementById(accountId).classList.remove('hidden');
+      const accountCards = document.querySelectorAll('.account-card');
+      accountCards.forEach(card => {
+        card.classList.remove('bg-blue-100');
+      });
+      document.getElementById('card-' + accountId).classList.add('bg-blue-100');
+    }
+
+    function showPopup() {
+      alert('PhonePe Account Added!');
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="flex flex-col h-screen">
+    <!-- Header -->
+    <div class="bg-white p-4 flex justify-between items-center shadow-md">
+      <div class="flex items-center">
+        <img alt="Logo" class="mr-3" height="40" src="https://placehold.co/40x40" width="40" />
+        <span class="text-xl font-semibold">
+          PhonePe+
+        </span>
+      </div>
+      <div class="flex items-center">
+        <i class="fas fa-bell text-gray-600 mr-6">
+        </i>
+        <div class="flex items-center">
+          <img alt="User Avatar" class="rounded-full mr-3" height="40" src="https://placehold.co/40x40" width="40" />
+          <div>
+            <span class="block font-semibold">
+              Rajesh Kumar
+            </span>
+            <span class="block text-yellow-600 text-sm">
+              Premium User
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="flex-1 p-4 overflow-y-auto">
+      <div class="mb-6">
+        <div class="relative w-full">
+          <input class="w-full p-2 pl-10 border rounded-lg" placeholder="Search..." type="text" />
+          <i class="fas fa-search absolute left-3 top-3 text-gray-400">
+          </i>
+        </div>
+      </div>
+      <div>
+        <!-- Wallet Section -->
+        <div class="mb-6">
+          <h2 class="text-2xl font-semibold mb-4">
+            Wallet
+          </h2>
+          <div class="flex justify-between mb-4">
+            <button class="bg-green-600 text-white px-6 py-3 rounded-lg">
+              + Add New Account
+            </button>
+            <button class="bg-red-600 text-white px-6 py-3 rounded-lg">
+              Delete Account
+            </button>
+            <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg" onclick="showPopup()">
+              Buy More Accounts
+            </button>
+          </div>
+          <div class="space-y-4">
+            <div class="p-4 border rounded-lg flex justify-between items-center bg-blue-50 cursor-pointer account-card shadow-lg" id="card-account1" onclick="showAccountDetails('account1')">
+              <div>
+                <h3 class="text-lg font-semibold">
+                  PhonePe UPI • **** 8392
+                </h3>
+                <p class="text-gray-500">
+                  ₹27,000
+                </p>
+              </div>
+              <span class="bg-blue-600 text-white px-2 py-1 rounded-lg">
+                Main
+              </span>
+            </div>
+            <div class="p-4 border rounded-lg flex justify-between items-center cursor-pointer account-card shadow-lg" id="card-account2" onclick="showAccountDetails('account2')">
+              <div>
+                <h3 class="text-lg font-semibold">
+                  PhonePe UPI • **** 4182
+                </h3>
+                <p class="text-gray-500">
+                  ₹910.02
+                </p>
+              </div>
+              <span class="bg-green-600 text-white px-2 py-1 rounded-lg">
+                Old
+              </span>
+            </div>
+            <div class="p-4 border rounded-lg flex justify-between items-center cursor-pointer account-card shadow-lg" id="card-account3" onclick="showAccountDetails('account3')">
+              <div>
+                <h3 class="text-lg font-semibold">
+                  PhonePe UPI • **** 1004
+                </h3>
+                <p class="text-gray-500">
+                  ₹202.11
+                </p>
+              </div>
+              <span class="bg-yellow-600 text-white px-2 py-1 rounded-lg">
+                New
+              </span>
+            </div>
+            <div class="p-4 border rounded-lg flex justify-between items-center cursor-pointer account-card shadow-lg" id="card-account4" onclick="showAccountDetails('account4')">
+              <div>
+                <h3 class="text-lg font-semibold">
+                  PhonePe UPI • **** 5678
+                </h3>
+                <p class="text-gray-500">
+                  ₹45
+                </p>
+              </div>
+              <span class="bg-purple-600 text-white px-2 py-1 rounded-lg">
+                Business
+              </span>
+            </div>
+            <div class="p-4 border rounded-lg flex justify-between items-center cursor-pointer account-card shadow-lg" id="card-account5" onclick="showAccountDetails('account5')">
+              <div>
+                <h3 class="text-lg font-semibold">
+                  PhonePe UPI • **** 9012
+                </h3>
+                <p class="text-gray-500">
+                  ₹1200
+                </p>
+              </div>
+              <span class="bg-red-600 text-white px-2 py-1 rounded-lg">
+                Personal
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Account Details Section -->
+        <div class="account-details p-4 border rounded-lg bg-white hidden shadow-lg" id="account1">
+          <h3 class="text-xl font-semibold mb-4">
+            PhonePe UPI • **** 8392
+          </h3>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500">
+              Account Details
+            </span>
+            <span class="bg-blue-600 text-white px-2 py-1 rounded-lg">
+              Main
+            </span>
+          </div>
+          <div class="mb-4">
+            <h4 class="text-2xl font-semibold">
+              ₹27,000.00
+            </h4>
+            <span class="text-green-500">
+              + 10%
+            </span>
+          </div>
+          <div class="mb-4 h-24 bg-gray-100 rounded-lg">
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Account holder
+            </p>
+            <p class="font-semibold">
+              Mahesh Sharma
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              UPI ID
+            </p>
+            <p class="font-semibold">
+              paytmqr60p05f@ptys
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Bank Name
+            </p>
+            <p class="font-semibold">
+              State Bank of India
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Account Type
+            </p>
+            <p class="font-semibold">
+              Savings
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Branch
+            </p>
+            <p class="font-semibold">
+              Mumbai
+            </p>
+          </div>
+          <div class="mb-4 p-4 border rounded-lg bg-gray-50 shadow-inner">
+            <h4 class="text-lg font-semibold mb-2">
+              Transfer Money
+            </h4>
+            <div class="mb-4">
+              <label class="block text-gray-600 mb-2" for="upi-id">
+                Enter UPI ID
+              </label>
+              <input class="w-full p-2 border rounded-lg" id="upi-id" placeholder="Enter UPI ID" type="text" />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-600 mb-2" for="name">
+                Name
+              </label>
+              <input class="w-full p-2 border rounded-lg" id="name" placeholder="Enter Name" type="text" />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-600 mb-2" for="amount">
+                Amount
+              </label>
+              <input class="w-full p-2 border rounded-lg" id="amount" placeholder="Enter Amount" type="number" />
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full">
+              Transfer Now
+            </button>
+          </div>
+          <div class="mb-4 p-4 border rounded-lg bg-white shadow-inner">
+            <h4 class="text-lg font-semibold mb-2">
+              Recent Transactions
+            </h4>
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Transfer to Main Account
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 01, 2025 12:32
+                  </p>
+                </div>
+                <span class="text-red-500">
+                  -₹10,000.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Received from Jyoti Moond
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 05, 2025 14:20
+                  </p>
+                </div>
+                <span class="text-green-500">
+                  +₹5,000.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Transfer to Main Account
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 10, 2025 09:15
+                  </p>
+                </div>
+                <span class="text-red-500">
+                  -₹2,000.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Received from Rahul Kumar
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 15, 2025 19:45
+                  </p>
+                </div>
+                <span class="text-green-500">
+                  +₹1,500.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Transfer to Main Account
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 20, 2025 11:30
+                  </p>
+                </div>
+                <span class="text-red-500">
+                  -₹500.00
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="account-details p-4 border rounded-lg bg-white hidden shadow-lg" id="account2">
+          <h3 class="text-xl font-semibold mb-4">
+            PhonePe UPI • **** 4182
+          </h3>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500">
+              Account Details
+            </span>
+            <span class="bg-green-600 text-white px-2 py-1 rounded-lg">
+              Old
+            </span>
+          </div>
+          <div class="mb-4">
+            <h4 class="text-2xl font-semibold">
+              ₹910.02
+            </h4>
+            <span class="text-green-500">
+              + 5%
+            </span>
+          </div>
+          <div class="mb-4 h-24 bg-gray-100 rounded-lg">
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Account holder
+            </p>
+            <p class="font-semibold">
+              Sunita Verma
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              UPI ID
+            </p>
+            <p class="font-semibold">
+              Q758412140@ybl
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Bank Name
+            </p>
+            <p class="font-semibold">
+              HDFC Bank
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Account Type
+            </p>
+            <p class="font-semibold">
+              Current
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="text-gray-600">
+              Branch
+            </p>
+            <p class="font-semibold">
+              Delhi
+            </p>
+          </div>
+          <div class="mb-4 p-4 border rounded-lg bg-gray-50 shadow-inner">
+            <h4 class="text-lg font-semibold mb-2">
+              Transfer Money
+            </h4>
+            <div class="mb-4">
+              <label class="block text-gray-600 mb-2" for="upi-id">
+                Enter UPI ID
+              </label>
+              <input class="w-full p-2 border rounded-lg" id="upi-id" placeholder="Enter UPI ID" type="text" />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-600 mb-2" for="name">
+                Name
+              </label>
+              <input class="w-full p-2 border rounded-lg" id="name" placeholder="Enter Name" type="text" />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-600 mb-2" for="amount">
+                Amount
+              </label>
+              <input class="w-full p-2 border rounded-lg" id="amount" placeholder="Enter Amount" type="number" />
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full">
+              Transfer Now
+            </button>
+          </div>
+          <div class="mb-4 p-4 border rounded-lg bg-white shadow-inner">
+            <h4 class="text-lg font-semibold mb-2">
+              Recent Transactions
+            </h4>
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Transfer to Main Account
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 02, 2025 12:32
+                  </p>
+                </div>
+                <span class="text-red-500">
+                  -₹10,000.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Received from Moodchand Bhati
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 06, 2025 14:20
+                  </p>
+                </div>
+                <span class="text-green-500">
+                  +₹5,000.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Transfer to Main Account
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 11, 2025 09:15
+                  </p>
+                </div>
+                <span class="text-red-500">
+                  -₹2,000.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Received from Mohit Bhannu
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 16, 2025 19:45
+                  </p>
+                </div>
+                <span class="text-green-500">
+                  +₹1,500.00
+                </span>
+              </div>
+              <div class="flex justify-between items-center mb-2">
+                <div>
+                  <p class="font-semibold">
+                    Transfer to Main Account
+                  </p>
+                  <p class="text-gray-500">
+                    Jan 21, 2025 11:30
+                  </p>
+                </div>
+                <span class="text-red-500">
+                  -₹500.00
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="account-details p-4 border rounded-lg bg-white hidden shadow-lg" id="account3">
+          <h3 class="text-xl font-semibold mb-4">
+            PhonePe UPI • **** 1004
+          </h3>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500">
+              Account Details
+            </span>
+            <span class="bg-yellow-600 text-white px-2 py-1 rounded-lg">
+              New
+            </span>
+          </div>
+          <div class="mb-4">
+            <h4 class="text-2xl font-semibold">
+              ₹202.11
+            </h4>
+            <span class="text-green-500">
+                   + 9
+       </span>
+      </div>
+      <div class="mb-4 h-24 bg-gray-100 rounded-lg">
+      </div>
+      <div class="mb-4">
+       <p class="text-gray-600">
+        Account holder
+       </p>
+       <p class="font-semibold">
+        Natik Chaudhary
+       </p>
+      </div>
+      <div class="mb-4">
+       <p class="text-gray-600">
+        UPI ID
+       </p>
+       <p class="font-semibold">
+        8463937473@mbk
+       </p>
+      </div>
+      <div class="mb-4">
+       <p class="text-gray-600">
+        Bank Name
+       </p>
+       <p class="font-semibold">
+        HDFC Bank
+       </p>
+      </div>
+      <div class="mb-4">
+       <p class="text-gray-600">
+        Account Type
+       </p>
+       <p class="font-semibold">
+        Current
+       </p>
+      </div>
+      <div class="mb-4">
+       <p class="text-gray-600">
+        Branch
+       </p>
+       <p class="font-semibold">
+        Delhi
+       </p>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg bg-gray-50 shadow-inner">
+       <h4 class="text-lg font-semibold mb-2">
+        Transfer Money
+       </h4>
+       <div class="mb-4">
+        <label class="block text-gray-600 mb-2" for="upi-id">
+         Enter UPI ID
+        </label>
+        <input class="w-full p-2 border rounded-lg" id="upi-id" placeholder="Enter UPI ID" type="text"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-600 mb-2" for="name">
+         Name
+        </label>
+        <input class="w-full p-2 border rounded-lg" id="name" placeholder="Enter Name" type="text"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-600 mb-2" for="amount">
+         Amount
+        </label>
+        <input class="w-full p-2 border rounded-lg" id="amount" placeholder="Enter Amount" type="number"/>
+       </div>
+       <button class="bg-blue-600 text-white px-4 py-2 rounded-lg w-full">
+        Transfer Now
+       </button>
+      </div>
+      <div class="mb-4 p-4 border rounded-lg bg-white shadow-inner">
+       <h4 class="text-lg font-semibold mb-2">
+        Recent Transactions
+       </h4>
+       <div class="border-t border-gray-200 pt-4">
+        <div class="flex justify-between items-center mb-2">
+         <div>
+          <p class="font-semibold">
+           Transfer to Main Account
+          </p>
+          <p class="text-gray-500">
+           Jan 02, 2025 12:32
+          </p>
+         </div>
+         <span class="text-red-500">
+          -₹10,000.00
+         </span>
+        </div>
+        <div class="flex justify-between items-center mb-2">
+         <div>
+          <p class="font-semibold">
+           Received from MootiLal Bhagadiya
+          </p>
+          <p class="text-gray-500">
+           Jan 06, 2025 14:20
+          </p>
+         </div>
+         <span class="text-green-500">
+          +₹5,000.00
+         </span>
+        </div>
+        <div class="flex justify-between items-center mb-2">
+         <div>
+          <p class="font-semibold">
+           Transfer to Main Account
+          </p>
+          <p class="text-gray-500">
+           Jan 11, 2025 09:15
+          </p>
+         </div>
+         <span class="text-red-500">
+          -₹2,000.00
+         </span>
+        </div>
+        <div class="flex justify-between items-center mb-2">
+         <div>
+          <p class="font-semibold">
+           Received from Alok Meena
+          </p>
+          <p class="text-gray-500">
+           Jan 16, 2025 19:45
+          </p>
+         </div>
+         <span class="text-green-500">
+          +₹1,500.00
+         </span>
+        </div>
+        <div class="flex justify-between items-center mb-2">
+         <div>
+          <p class="font-semibold">
+           Transfer to Main Account
+          </p>
+          <p class="text-gray-500">
+           Jan 21, 2025 11:30
+          </p>
+         </div>
+         <span class="text-red-500">
+          -₹500.00
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+<!-- partial -->
+  
+</body>
+</html>
